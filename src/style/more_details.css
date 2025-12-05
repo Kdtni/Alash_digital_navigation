@@ -7,7 +7,7 @@
 
 body {
     background: #f8f9fa;
-    color: #333;
+    color: black;
 }
 
 .page {
@@ -41,12 +41,12 @@ body {
 
 .uni-name {
     font-size: 1.8rem;
-    color: #2c3e50;
+    color: black;
     margin-bottom: 5px;
 }
 
 .uni-city {
-    color: #666;
+    color: black;
     font-size: 1rem;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .block-title {
     font-size: 1.3rem;
-    color: #2c3e50;
+    color: black;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -132,11 +132,11 @@ body {
 .price {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: black;
 }
 
 .price-desc {
-    color: #666;
+    color: black;
     font-size: 0.9rem;
     margin-top: 5px;
 }
@@ -191,7 +191,7 @@ body {
 
 .btn-gray {
     background: #f0f0f0;
-    color: #333;
+    color: black;
 }
 
 .btn-gray:hover {
