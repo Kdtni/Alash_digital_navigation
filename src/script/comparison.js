@@ -1,3 +1,4 @@
+// массив с уникамии
 const universitiesData = {
   kaznu: {
     name: "КазНУ им. аль-Фараби",
@@ -97,7 +98,7 @@ const universitiesData = {
   },
 };
 
-// Критерии для сравнения
+// критерии для сравнения
 const criteria = [
   { id: "reputation", name: "Репутация и престиж", icon: "fas fa-award" },
   { id: "cost", name: "Стоимость обучения", icon: "fas fa-money-bill-wave" },
@@ -129,7 +130,7 @@ const criteria = [
   },
 ];
 
-// Элементы DOM
+// элементы DOM
 const uniSelect1 = document.getElementById("uni1");
 const uniSelect2 = document.getElementById("uni2");
 const uniSelect3 = document.getElementById("uni3");
@@ -141,19 +142,19 @@ const uniHeader1 = document.getElementById("uniHeader1");
 const uniHeader2 = document.getElementById("uniHeader2");
 const uniHeader3 = document.getElementById("uniHeader3");
 
-// Функция для отображения сравнения
+// функция для отображения сравнения
 function renderComparison() {
   const selectedUnis = [
     uniSelect1.value,
     uniSelect2.value,
     uniSelect3.value,
-  ].filter((value) => value !== "");
+  ].filter((value) => value !== ""); // фильровать пустые ячейки
 
-  // Очистка таблицы
+  // очистка таблицы
   comparisonBody.innerHTML = "";
   resultsContent.innerHTML = "";
 
-  // Если не выбрано ни одного университета
+  // если не выбрано ни одного университета
   if (selectedUnis.length === 0) {
     comparisonBody.innerHTML =
       '<tr><td colspan="4" class="no-data" style="text-align: center; padding: 40px;">Выберите университеты для сравнения</td></tr>';
@@ -162,20 +163,20 @@ function renderComparison() {
     return;
   }
 
-  // Обновление заголовков таблицы
+  // обновление заголовков таблицы
   updateTableHeaders(selectedUnis);
 
-  // Добавление строк с критериями
+  // добавление строк с критериями
   criteria.forEach((criterion) => {
-    const row = document.createElement("tr");
+    const row = document.createElement("tr"); // создать строку для таблицы
 
-    // Ячейка с названием критерия
+    // ячейка с названием критерия
     const criterionCell = document.createElement("td");
     criterionCell.className = "criteria-header";
     criterionCell.innerHTML = `<i class="${criterion.icon}"></i> ${criterion.name}`;
     row.appendChild(criterionCell);
 
-    // Ячейки с данными для каждого университета
+    // ячейки с данными для каждого университета
     selectedUnis.forEach((uniId) => {
       const uniCell = document.createElement("td");
       const uniData = universitiesData[uniId];
@@ -189,7 +190,7 @@ function renderComparison() {
       row.appendChild(uniCell);
     });
 
-    // Добавление пустых ячеек, если выбрано меньше 3 университетов
+    // добавление пустых ячеек, если выбрано меньше 3 университетов
     for (let i = selectedUnis.length; i < 3; i++) {
       const emptyCell = document.createElement("td");
       emptyCell.innerHTML = '<span class="no-data">Не выбран</span>';
@@ -199,7 +200,7 @@ function renderComparison() {
     comparisonBody.appendChild(row);
   });
 
-  // Генерация результатов сравнения
+  // генерация результатов сравнения
   generateComparisonResults(selectedUnis);
 }
 
@@ -228,7 +229,7 @@ function updateTableHeaders(selectedUnis) {
   });
 }
 
-// Генерация результатов сравнения
+// генерация результатов сравнения
 function generateComparisonResults(selectedUnis) {
   if (selectedUnis.length < 2) {
     resultsContent.innerHTML =
@@ -238,7 +239,7 @@ function generateComparisonResults(selectedUnis) {
 
   resultsContent.innerHTML = "";
 
-  // Сравнение по стоимости
+  // сравнение по стоимости
   const costResults = compareByCost(selectedUnis);
   if (costResults) {
     const costCard = document.createElement("div");
@@ -251,7 +252,7 @@ function generateComparisonResults(selectedUnis) {
     resultsContent.appendChild(costCard);
   }
 
-  // Сравнение по рейтингу
+  // сравнение по рейтингу
   const ratingResults = compareByRating(selectedUnis);
   if (ratingResults) {
     const ratingCard = document.createElement("div");
@@ -264,7 +265,7 @@ function generateComparisonResults(selectedUnis) {
     resultsContent.appendChild(ratingCard);
   }
 
-  // Сравнение по трудоустройству
+  // сравнение по трудоустройству
   const employmentResults = compareByEmployment(selectedUnis);
   if (employmentResults) {
     const employmentCard = document.createElement("div");
@@ -277,7 +278,7 @@ function generateComparisonResults(selectedUnis) {
     resultsContent.appendChild(employmentCard);
   }
 
-  // Рекомендация
+  // рекомендация
   const recommendation = generateRecommendation(selectedUnis);
   const recommendationCard = document.createElement("div");
   recommendationCard.className = "result-card";
@@ -290,7 +291,7 @@ function generateComparisonResults(selectedUnis) {
   resultsContent.appendChild(recommendationCard);
 }
 
-// Функции сравнения по разным критериям
+// функции сравнения по разным критериям
 function compareByCost(selectedUnis) {
   const costs = selectedUnis.map((id) => {
     const costStr = universitiesData[id].criteria.cost;
@@ -340,7 +341,7 @@ function compareByEmployment(selectedUnis) {
 function generateRecommendation(selectedUnis) {
   if (selectedUnis.length === 0) return { winner: "", text: "" };
 
-  // Простой алгоритм рекомендации на основе рейтинга
+  // простой алгоритм рекомендации на основе рейтинга
   let bestUni = selectedUnis[0];
   let bestRating = universitiesData[bestUni].rating;
 
@@ -359,7 +360,7 @@ function generateRecommendation(selectedUnis) {
   };
 }
 
-// Обработчики событий
+// обработчики событий
 compareBtn.addEventListener("click", renderComparison);
 
 resetBtn.addEventListener("click", function () {
@@ -369,14 +370,14 @@ resetBtn.addEventListener("click", function () {
   renderComparison();
 });
 
-// Инициализация при загрузке страницы
+// инициализация при загрузке страницы
 document.addEventListener("DOMContentLoaded", function () {
-  // Можно предзаполнить выбранные университеты, если нужно
-  // Например, из параметров URL
+  // можно предзаполнить выбранные университеты, если нужно
+  // например, из параметров URL
   renderComparison();
 });
 
-// Автоматическое обновление при изменении выбора
+// автоматическое обновление при изменении выбора
 [uniSelect1, uniSelect2, uniSelect3].forEach((select) => {
   select.addEventListener("change", renderComparison);
 });
