@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сравнение университетов Казахстана | ADNKazakhstan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+        padding-bottom: 40px;
+      }
+
+      /* Контейнер страницы */
+      .comparison-container {
+        max-width: 1400px;
+        margin: 30px auto;
+        padding: 0 20px;
+      }
+
+      /* Заголовок страницы */
+      .page-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eaeaea;
+      }
+
+      .page-header h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .page-header p {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Панель управления сравнением */
+      .comparison-controls {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .university-selectors {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        flex-grow: 1;
+      }
+
+      .selector-group {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .selector-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .university-select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border 0.3s;
+        background-color: #f9f9f9;
+      }
+
+      .university-select:focus {
+        border-color: #3498db;
+        outline: none;
+        background-color: white;
+      }
+
+      .control-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+      }
+
+      .btn-secondary {
+        background-color: #ecf0f1;
+        color: #2c3e50;
+      }
+
+      .btn-secondary:hover {
+        background-color: #d5dbdb;
+      }
+
+      /* Таблица сравнения */
+      .comparison-table-container {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        overflow-x: auto;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+      }
+
+      .comparison-table th {
+        background-color: #2c3e50;
+        color: white;
+        text-align: left;
+        padding: 18px 15px;
+        font-weight: 600;
+      }
+
+      .comparison-table td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+
+      .criteria-header {
+        background-color: #f8f9fa;
+        font-weight: 700;
+        color: #2c3e50;
+        width: 250px;
+      }
+
+      .university-cell {
+        width: 300px;
+      }
+
+      .university-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 10px;
+      }
+
+      .university-logo {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        padding: 5px;
+        border: 1px solid #eee;
+      }
+
+      .university-name {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #2c3e50;
+      }
+
+      .university-city {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+
+      .rating-badge {
+        display: inline-block;
+        background-color: #f1c40f;
+        color: #2c3e50;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-top: 5px;
+      }
+
+      .feature-list {
+        list-style-type: none;
+      }
+
+      .feature-list li {
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .feature-list i {
+        color: #27ae60;
+        width: 18px;
+      }
+
+      .no-data {
+        color: #95a5a6;
+        font-style: italic;
+      }
+
+      /* Блок с результатами сравнения */
+      .comparison-results {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .results-header {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .results-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .result-card {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        border-left: 4px solid #3498db;
+      }
+
+      .result-title {
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .result-winner {
+        font-weight: 700;
+        color: #27ae60;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* Адаптивность */
+      @media (max-width: 1100px) {
+        .comparison-controls {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .control-buttons {
+          justify-content: center;
+        }
+
+        .selector-group {
+          min-width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 2rem;
+        }
+
+        .university-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 10px;
+        }
+
+        .results-content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Здесь будет ваш header -->
+
+    <div class="comparison-container">
+      <header class="page-header">
+        <h1>
+          <i class="fas fa-university"></i> Сравнение университетов Казахстана
+        </h1>
+        <p>
+          Выберите до 3 университетов для сравнения по ключевым критериям.
+          Определите лучший вариант для вашего образования.
+        </p>
+      </header>
+
+      <!-- Панель управления сравнением -->
+      <section class="comparison-controls">
+        <div class="university-selectors">
+          <div class="selector-group">
+            <label for="uni1"
+              ><i class="fas fa-school"></i> Университет 1</label
+            >
+            <select id="uni1" class="university-select">
+              <option value="">-- Выберите университет --</option>
+              <option value="kaznu">
+                Казахский национальный университет им. аль-Фараби
+              </option>
+              <option value="nu">Назарбаев Университет</option>
+              <option value="kazntu">
+                Казахский национальный технический университет им. К. Сатпаева
+              </option>
+              <option value="enu">
+                Евразийский национальный университет им. Л.Н. Гумилева
+              </option>
+              <option value="kau">
+                Казахский агротехнический университет им. С. Сейфуллина
+              </option>
+              <option value="kaznuir">
+                Казахский национальный университет искусств
+              </option>
+            </select>
+          </div>
+
+          <div class="selector-group">
+            <label for="uni2"
+              ><i class="fas fa-school"></i> Университет 2</label
+            >
+            <select id="uni2" class="university-select">
+              <option value="">-- Выберите университет --</option>
+              <option value="kaznu">
+                Казахский национальный университет им. аль-Фараби
+              </option>
+              <option value="nu">Назарбаев Университет</option>
+              <option value="kazntu">
+                Казахский национальный технический университет им. К. Сатпаева
+              </option>
+              <option value="enu">
+                Евразийский национальный университет им. Л.Н. Гумилева
+              </option>
+              <option value="kau">
+                Казахский агротехнический университет им. С. Сейфуллина
+              </option>
+              <option value="kaznuir">
+                Казахский национальный университет искусств
+              </option>
+            </select>
+          </div>
+
+          <div class="selector-group">
+            <label for="uni3"
+              ><i class="fas fa-school"></i> Университет 3</label
+            >
+            <select id="uni3" class="university-select">
+              <option value="">-- Выберите университет --</option>
+              <option value="kaznu">
+                Казахский национальный университет им. аль-Фараби
+              </option>
+              <option value="nu">Назарбаев Университет</option>
+              <option value="kazntu">
+                Казахский национальный технический университет им. К. Сатпаева
+              </option>
+              <option value="enu">
+                Евразийский национальный университет им. Л.Н. Гумилева
+              </option>
+              <option value="kau">
+                Казахский агротехнический университет им. С. Сейфуллина
+              </option>
+              <option value="kaznuir">
+                Казахский национальный университет искусств
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-buttons">
+          <button id="compareBtn" class="btn btn-primary">
+            <i class="fas fa-balance-scale"></i> Сравнить выбранные
+          </button>
+          <button id="resetBtn" class="btn btn-secondary">
+            <i class="fas fa-redo"></i> Сбросить
+          </button>
+        </div>
+      </section>
+
+      <!-- Таблица сравнения -->
+      <section class="comparison-table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="criteria-header">Критерии сравнения</th>
+              <th id="uniHeader1" class="university-cell">Университет 1</th>
+              <th id="uniHeader2" class="university-cell">Университет 2</th>
+              <th id="uniHeader3" class="university-cell">Университет 3</th>
+            </tr>
+          </thead>
+          <tbody id="comparisonBody">
+            <!-- Данные будут вставлены с помощью JavaScript -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Результаты сравнения -->
+      <section class="comparison-results">
+        <h2 class="results-header">
+          <i class="fas fa-chart-line"></i> Результаты сравнения
+        </h2>
+        <div id="resultsContent" class="results-content">
+          <p class="no-data">
+            Выберите университеты для сравнения, чтобы увидеть результаты.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Здесь будет ваш footer -->
+
+    <script>
+      // Данные об университетах
+      const universitiesData = {
+        kaznu: {
+          name: "КазНУ им. аль-Фараби",
+          city: "Алматы",
+          logo: "https://upload.wikimedia.org/wikipedia/ru/thumb/6/6e/KazNU_Al-Farabi_emblem.png/150px-KazNU_Al-Farabi_emblem.png",
+          rating: 4.8,
+          criteria: {
+            reputation: "Высокая (старейший вуз страны)",
+            cost: "от 600,000 тг/год",
+            programs: "Более 200 образовательных программ",
+            dormitory: "Есть, от 30,000 тг/мес",
+            accreditation: "Государственная, международная",
+            employment: "85% выпускников",
+            research: "Высокий уровень, много научных проектов",
+            international: "Партнерства с 500+ вузами мира",
+          },
+        },
+        nu: {
+          name: "Назарбаев Университет",
+          city: "Нур-Султан",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Nazarbayev_University_seal.png/150px-Nazarbayev_University_seal.png",
+          rating: 4.9,
+          criteria: {
+            reputation: "Очень высокая (ведущий исследовательский вуз)",
+            cost: "Конкурсный отбор, часто с грантом",
+            programs: "Современные программы на английском",
+            dormitory: "Есть, современные кампусы",
+            accreditation: "Международная (зарубежные партнеры)",
+            employment: "92% выпускников",
+            research: "Очень высокий, передовые лаборатории",
+            international: "Сильная интеграция, зарубежные преподаватели",
+          },
+        },
+        kazntu: {
+          name: "КазНТУ им. Сатпаева",
+          city: "Алматы",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Satbayev_University_logo_ru.png/150px-Satbayev_University_logo_ru.png",
+          rating: 4.5,
+          criteria: {
+            reputation: "Высокая (лучший технический вуз)",
+            cost: "от 550,000 тг/год",
+            programs: "Технические и инженерные специальности",
+            dormitory: "Есть, от 25,000 тг/мес",
+            accreditation: "Государственная, отраслевая",
+            employment: "88% выпускников",
+            research: "Прикладные исследования, инновации",
+            international: "Партнерства с техническими вузами",
+          },
+        },
+        enu: {
+          name: "ЕНУ им. Гумилева",
+          city: "Нур-Султан",
+          logo: "https://enu.kz/images/logo.png",
+          rating: 4.4,
+          criteria: {
+            reputation: "Высокая (крупный научно-образовательный центр)",
+            cost: "от 500,000 тг/год",
+            programs: "Широкий спектр гуманитарных и естественных наук",
+            dormitory: "Есть, от 28,000 тг/мес",
+            accreditation: "Государственная",
+            employment: "82% выпускников",
+            research: "Научные школы, публикации",
+            international: "Активное международное сотрудничество",
+          },
+        },
+        kau: {
+          name: "КазАТУ им. Сейфуллина",
+          city: "Нур-Султан",
+          logo: "https://kazatu.edu.kz/wp-content/uploads/2020/09/logo.png",
+          rating: 4.2,
+          criteria: {
+            reputation: "Высокая (ведущий аграрный вуз)",
+            cost: "от 450,000 тг/год",
+            programs: "Аграрные, технические, экономические",
+            dormitory: "Есть, от 20,000 тг/мес",
+            accreditation: "Государственная, отраслевая",
+            employment: "80% выпускников",
+            research: "Прикладные аграрные исследования",
+            international: "Сотрудничество с аграрными вузами",
+          },
+        },
+        kaznuir: {
+          name: "КазНУИ",
+          city: "Астана",
+          logo: "https://kaznui.kz/wp-content/uploads/2022/04/logo_kaznui.png",
+          rating: 4.3,
+          criteria: {
+            reputation: "Высокая (ведущий вуз искусств)",
+            cost: "от 700,000 тг/год",
+            programs: "Искусство, музыка, театр, хореография",
+            dormitory: "Есть, от 35,000 тг/мес",
+            accreditation: "Государственная",
+            employment: "78% выпускников",
+            research: "Творческие проекты, выставки",
+            international: "Участие в международных конкурсах",
+          },
+        },
+      };
+
+      // Критерии для сравнения
+      const criteria = [
+        { id: "reputation", name: "Репутация и престиж", icon: "fas fa-award" },
+        {
+          id: "cost",
+          name: "Стоимость обучения",
+          icon: "fas fa-money-bill-wave",
+        },
+        {
+          id: "programs",
+          name: "Образовательные программы",
+          icon: "fas fa-graduation-cap",
+        },
+        { id: "dormitory", name: "Общежитие", icon: "fas fa-home" },
+        {
+          id: "accreditation",
+          name: "Аккредитация",
+          icon: "fas fa-file-certificate",
+        },
+        {
+          id: "employment",
+          name: "Трудоустройство выпускников",
+          icon: "fas fa-briefcase",
+        },
+        {
+          id: "research",
+          name: "Научно-исследовательская деятельность",
+          icon: "fas fa-flask",
+        },
+        {
+          id: "international",
+          name: "Международное сотрудничество",
+          icon: "fas fa-globe-asia",
+        },
+      ];
+
+      // Элементы DOM
+      const uniSelect1 = document.getElementById("uni1");
+      const uniSelect2 = document.getElementById("uni2");
+      const uniSelect3 = document.getElementById("uni3");
+      const compareBtn = document.getElementById("compareBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      const comparisonBody = document.getElementById("comparisonBody");
+      const resultsContent = document.getElementById("resultsContent");
+      const uniHeader1 = document.getElementById("uniHeader1");
+      const uniHeader2 = document.getElementById("uniHeader2");
+      const uniHeader3 = document.getElementById("uniHeader3");
+
+      // Функция для отображения сравнения
+      function renderComparison() {
+        const selectedUnis = [
+          uniSelect1.value,
+          uniSelect2.value,
+          uniSelect3.value,
+        ].filter((value) => value !== "");
+
+        // Очистка таблицы
+        comparisonBody.innerHTML = "";
+        resultsContent.innerHTML = "";
+
+        // Если не выбрано ни одного университета
+        if (selectedUnis.length === 0) {
+          comparisonBody.innerHTML =
+            '<tr><td colspan="4" class="no-data" style="text-align: center; padding: 40px;">Выберите университеты для сравнения</td></tr>';
+          resultsContent.innerHTML =
+            '<p class="no-data">Выберите университеты для сравнения, чтобы увидеть результаты.</p>';
+          return;
+        }
+
+        // Обновление заголовков таблицы
+        updateTableHeaders(selectedUnis);
+
+        // Добавление строк с критериями
+        criteria.forEach((criterion) => {
+          const row = document.createElement("tr");
+
+          // Ячейка с названием критерия
+          const criterionCell = document.createElement("td");
+          criterionCell.className = "criteria-header";
+          criterionCell.innerHTML = `<i class="${criterion.icon}"></i> ${criterion.name}`;
+          row.appendChild(criterionCell);
+
+          // Ячейки с данными для каждого университета
+          selectedUnis.forEach((uniId) => {
+            const uniCell = document.createElement("td");
+            const uniData = universitiesData[uniId];
+
+            if (uniData && uniData.criteria[criterion.id]) {
+              uniCell.textContent = uniData.criteria[criterion.id];
+            } else {
+              uniCell.innerHTML = '<span class="no-data">Нет данных</span>';
+            }
+
+            row.appendChild(uniCell);
+          });
+
+          // Добавление пустых ячеек, если выбрано меньше 3 университетов
+          for (let i = selectedUnis.length; i < 3; i++) {
+            const emptyCell = document.createElement("td");
+            emptyCell.innerHTML = '<span class="no-data">Не выбран</span>';
+            row.appendChild(emptyCell);
+          }
+
+          comparisonBody.appendChild(row);
+        });
+
+        // Генерация результатов сравнения
+        generateComparisonResults(selectedUnis);
+      }
+
+      // Обновление заголовков таблицы
+      function updateTableHeaders(selectedUnis) {
+        const headers = [uniHeader1, uniHeader2, uniHeader3];
+
+        headers.forEach((header, index) => {
+          if (index < selectedUnis.length) {
+            const uniId = selectedUnis[index];
+            const uniData = universitiesData[uniId];
+
+            header.innerHTML = `
+                        <div class="university-header">
+                            <img src="${uniData.logo}" alt="${uniData.name}" class="university-logo">
+                            <div>
+                                <div class="university-name">${uniData.name}</div>
+                                <div class="university-city">${uniData.city}</div>
+                                <div class="rating-badge">Рейтинг: ${uniData.rating}/5.0</div>
+                            </div>
+                        </div>
+                    `;
+          } else {
+            header.innerHTML = "Университет не выбран";
+          }
+        });
+      }
+
+      // Генерация результатов сравнения
+      function generateComparisonResults(selectedUnis) {
+        if (selectedUnis.length < 2) {
+          resultsContent.innerHTML =
+            '<p class="no-data">Выберите хотя бы 2 университета для сравнения.</p>';
+          return;
+        }
+
+        resultsContent.innerHTML = "";
+
+        // Сравнение по стоимости
+        const costResults = compareByCost(selectedUnis);
+        if (costResults) {
+          const costCard = document.createElement("div");
+          costCard.className = "result-card";
+          costCard.innerHTML = `
+                    <h3 class="result-title"><i class="fas fa-money-bill-wave"></i> Стоимость обучения</h3>
+                    <p>${costResults.text}</p>
+                    <div class="result-winner"><i class="fas fa-trophy"></i> ${costResults.winner}</div>
+                `;
+          resultsContent.appendChild(costCard);
+        }
+
+        // Сравнение по рейтингу
+        const ratingResults = compareByRating(selectedUnis);
+        if (ratingResults) {
+          const ratingCard = document.createElement("div");
+          ratingCard.className = "result-card";
+          ratingCard.innerHTML = `
+                    <h3 class="result-title"><i class="fas fa-star"></i> Рейтинг университета</h3>
+                    <p>${ratingResults.text}</p>
+                    <div class="result-winner"><i class="fas fa-trophy"></i> ${ratingResults.winner}</div>
+                `;
+          resultsContent.appendChild(ratingCard);
+        }
+
+        // Сравнение по трудоустройству
+        const employmentResults = compareByEmployment(selectedUnis);
+        if (employmentResults) {
+          const employmentCard = document.createElement("div");
+          employmentCard.className = "result-card";
+          employmentCard.innerHTML = `
+                    <h3 class="result-title"><i class="fas fa-briefcase"></i> Трудоустройство выпускников</h3>
+                    <p>${employmentResults.text}</p>
+                    <div class="result-winner"><i class="fas fa-trophy"></i> ${employmentResults.winner}</div>
+                `;
+          resultsContent.appendChild(employmentCard);
+        }
+
+        // Рекомендация
+        const recommendation = generateRecommendation(selectedUnis);
+        const recommendationCard = document.createElement("div");
+        recommendationCard.className = "result-card";
+        recommendationCard.style.borderLeftColor = "#27ae60";
+        recommendationCard.innerHTML = `
+                <h3 class="result-title"><i class="fas fa-lightbulb"></i> Наша рекомендация</h3>
+                <p>${recommendation.text}</p>
+                <div class="result-winner">${recommendation.winner}</div>
+            `;
+        resultsContent.appendChild(recommendationCard);
+      }
+
+      // Функции сравнения по разным критериям
+      function compareByCost(selectedUnis) {
+        const costs = selectedUnis.map((id) => {
+          const costStr = universitiesData[id].criteria.cost;
+          const match = costStr.match(/(\d+)/);
+          return match ? parseInt(match[1]) : Infinity;
+        });
+
+        const minCost = Math.min(...costs);
+        const minIndex = costs.indexOf(minCost);
+        const winnerUni = universitiesData[selectedUnis[minIndex]].name;
+
+        return {
+          winner: `Лучшая стоимость: ${winnerUni}`,
+          text: `Наименьшая стоимость обучения среди выбранных университетов.`,
+        };
+      }
+
+      function compareByRating(selectedUnis) {
+        const ratings = selectedUnis.map((id) => universitiesData[id].rating);
+        const maxRating = Math.max(...ratings);
+        const maxIndex = ratings.indexOf(maxRating);
+        const winnerUni = universitiesData[selectedUnis[maxIndex]].name;
+
+        return {
+          winner: `Лучший рейтинг: ${winnerUni}`,
+          text: `Наивысший рейтинг среди выбранных университетов.`,
+        };
+      }
+
+      function compareByEmployment(selectedUnis) {
+        const employments = selectedUnis.map((id) => {
+          const empStr = universitiesData[id].criteria.employment;
+          const match = empStr.match(/(\d+)%/);
+          return match ? parseInt(match[1]) : 0;
+        });
+
+        const maxEmployment = Math.max(...employments);
+        const maxIndex = employments.indexOf(maxEmployment);
+        const winnerUni = universitiesData[selectedUnis[maxIndex]].name;
+
+        return {
+          winner: `Лучшее трудоустройство: ${winnerUni}`,
+          text: `Наивысший процент трудоустройства выпускников.`,
+        };
+      }
+
+      function generateRecommendation(selectedUnis) {
+        if (selectedUnis.length === 0) return { winner: "", text: "" };
+
+        // Простой алгоритм рекомендации на основе рейтинга
+        let bestUni = selectedUnis[0];
+        let bestRating = universitiesData[bestUni].rating;
+
+        selectedUnis.forEach((uniId) => {
+          if (universitiesData[uniId].rating > bestRating) {
+            bestRating = universitiesData[uniId].rating;
+            bestUni = uniId;
+          }
+        });
+
+        const bestUniName = universitiesData[bestUni].name;
+
+        return {
+          winner: `Рекомендуем: ${bestUniName}`,
+          text: `На основе анализа ключевых критериев, этот университет показал наилучшие результаты среди выбранных вариантов.`,
+        };
+      }
+
+      // Обработчики событий
+      compareBtn.addEventListener("click", renderComparison);
+
+      resetBtn.addEventListener("click", function () {
+        uniSelect1.value = "";
+        uniSelect2.value = "";
+        uniSelect3.value = "";
+        renderComparison();
+      });
+
+      // Инициализация при загрузке страницы
+      document.addEventListener("DOMContentLoaded", function () {
+        // Можно предзаполнить выбранные университеты, если нужно
+        // Например, из параметров URL
+        renderComparison();
+      });
+
+      // Автоматическое обновление при изменении выбора
+      [uniSelect1, uniSelect2, uniSelect3].forEach((select) => {
+        select.addEventListener("change", renderComparison);
+      });
+    </script>
+  </body>
+</html>
