@@ -326,18 +326,9 @@ nav a:hover {
 
 /* ЛОГО */
 .footer-logo img {
-    width: 70px;
-    height: 70px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
-}
-
-.footer-logo h2 {
-    margin: 10px 0 5px;
-    font-size: 22px;
-}
-
-.footer-logo p {
-    opacity: 0.9;
 }
 
 /* ССЫЛКИ */
