@@ -14,7 +14,7 @@
 
 .subtitle {
     text-align: center;
-    color: #444;
+    color: black;
     margin-bottom: 50px;
     font-size: 18px;
 }
@@ -29,11 +29,11 @@
 
 .benefit {
     flex: 1;
-    background: #f0f8ff;
+    background: white;
     border-radius: 14px;
     padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 4px 12px rgba(38,139,240,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .benefit h3 {
-    color: #268BF0;
+    color: black;
     margin-bottom: 12px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .partner-card {
-    background: #ffffff;
+    background: white;
     border-radius: 14px;
     padding: 20px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
@@ -116,7 +116,7 @@
 
 .cta-btn {
     background: #268BF0;
-    color: #fff;
+    color: white;
     padding: 12px 25px;
     border-radius: 10px;
     text-decoration: none;
