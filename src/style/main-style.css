@@ -431,6 +431,9 @@ nav a:hover {
     justify-content: center;
     border-radius: 50%;
 }
+.instruction i img {
+    height: 35px;
+}
 
 .instruction p {
     color: #2c3e50;
