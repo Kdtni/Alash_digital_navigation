@@ -1,0 +1,147 @@
+.international-page {
+    padding: 100px 0;
+    background: #ffffff;
+    color: #000;
+}
+
+.international-page h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #268BF0;
+}
+
+.subtitle {
+    text-align: center;
+    color: #444;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* Преимущества */
+.benefits {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.benefit {
+    flex: 1;
+    background: #f0f8ff;
+    border-radius: 14px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(38,139,240,0.2);
+    transition: transform 0.3s;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
+}
+
+.benefit h3 {
+    color: #268BF0;
+    margin-bottom: 12px;
+}
+
+.benefit p {
+    color: #333;
+}
+
+/* Партнёрские университеты */
+.partners {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.partners h2 {
+    color: #268BF0;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.partner-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+.partner-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    }
+
+.partner-card h4 {
+    margin-bottom: 6px;
+    color: #268BF0;
+}
+
+.partner-card p {
+    color: #333;
+}
+
+/* Призыв к действию */
+.cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta h3 {
+    color: #268BF0;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.cta-btn {
+    background: #268BF0;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.cta-btn:hover {
+    background: #1b6fd1;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+    .benefits {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+}
