@@ -1,9 +1,8 @@
-// данные об университетах
 const universitiesData = {
   kaznu: {
     name: "КазНУ им. аль-Фараби",
     city: "Алматы",
-    logo: "https://farabi.university/front/assets/img/icons/logonew1.png",
+    logo: "https://upload.wikimedia.org/wikipedia/ru/thumb/6/6e/KazNU_Al-Farabi_emblem.png/150px-KazNU_Al-Farabi_emblem.png",
     rating: 4.8,
     criteria: {
       reputation: "Высокая (старейший вуз страны)",
@@ -19,7 +18,7 @@ const universitiesData = {
   nu: {
     name: "Назарбаев Университет",
     city: "Нур-Султан",
-    logo: "https://static.tildacdn.pro/tild3731-3534-4564-a433-363633326465/noroot.png",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Nazarbayev_University_seal.png/150px-Nazarbayev_University_seal.png",
     rating: 4.9,
     criteria: {
       reputation: "Очень высокая (ведущий исследовательский вуз)",
@@ -35,7 +34,7 @@ const universitiesData = {
   kazntu: {
     name: "КазНТУ им. Сатпаева",
     city: "Алматы",
-    logo: "https://official.satbayev.university/files/img/official/main/Frame%2018.png",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Satbayev_University_logo_ru.png/150px-Satbayev_University_logo_ru.png",
     rating: 4.5,
     criteria: {
       reputation: "Высокая (лучший технический вуз)",
@@ -51,7 +50,7 @@ const universitiesData = {
   enu: {
     name: "ЕНУ им. Гумилева",
     city: "Нур-Султан",
-    logo: "https://enu.kz/_nuxt/logo.0ywpaMup.svg",
+    logo: "https://enu.kz/images/logo.png",
     rating: 4.4,
     criteria: {
       reputation: "Высокая (крупный научно-образовательный центр)",
@@ -67,7 +66,7 @@ const universitiesData = {
   kau: {
     name: "КазАТУ им. Сейфуллина",
     city: "Нур-Султан",
-    logo: "https://kazatu.edu.kz/img/logo_official.svg",
+    logo: "https://kazatu.edu.kz/wp-content/uploads/2020/09/logo.png",
     rating: 4.2,
     criteria: {
       reputation: "Высокая (ведущий аграрный вуз)",
@@ -83,7 +82,7 @@ const universitiesData = {
   kaznuir: {
     name: "КазНУИ",
     city: "Астана",
-    logo: "https://kaznui.kz/img/logo.png",
+    logo: "https://kaznui.kz/wp-content/uploads/2022/04/logo_kaznui.png",
     rating: 4.3,
     criteria: {
       reputation: "Высокая (ведущий вуз искусств)",
@@ -98,14 +97,10 @@ const universitiesData = {
   },
 };
 
-// критерии для сравнения
+// Критерии для сравнения
 const criteria = [
   { id: "reputation", name: "Репутация и престиж", icon: "fas fa-award" },
-  {
-    id: "cost",
-    name: "Стоимость обучения",
-    icon: "fas fa-money-bill-wave",
-  },
+  { id: "cost", name: "Стоимость обучения", icon: "fas fa-money-bill-wave" },
   {
     id: "programs",
     name: "Образовательные программы",
@@ -134,7 +129,7 @@ const criteria = [
   },
 ];
 
-// элементы DOM
+// Элементы DOM
 const uniSelect1 = document.getElementById("uni1");
 const uniSelect2 = document.getElementById("uni2");
 const uniSelect3 = document.getElementById("uni3");
@@ -146,9 +141,8 @@ const uniHeader1 = document.getElementById("uniHeader1");
 const uniHeader2 = document.getElementById("uniHeader2");
 const uniHeader3 = document.getElementById("uniHeader3");
 
-// отображения сравнения
+// Функция для отображения сравнения
 function renderComparison() {
-<<<<<<< HEAD
   const selectedUnis = [
     uniSelect1.value,
     uniSelect2.value,
@@ -207,69 +201,9 @@ function renderComparison() {
 
   // Генерация результатов сравнения
   generateComparisonResults(selectedUnis);
-=======
-    const selectedUnis = [
-        uniSelect1.value,
-        uniSelect2.value,
-        uniSelect3.value,
-    ].filter((value) => value !== ""); // оставить толька те элементы которые не пустые
-
-    // очистка таблицы
-    comparisonBody.innerHTML = "";
-    resultsContent.innerHTML = "";
-
-    // если не выбрано ни одного университета
-    if (selectedUnis.length === 0) {
-        comparisonBody.innerHTML =
-            '<tr><td colspan="4" class="no-data" style="text-align: center; padding: 40px;">Выберите университеты для сравнения</td></tr>';
-        resultsContent.innerHTML =
-            '<p class="no-data">Выберите университеты для сравнения, чтобы увидеть результаты.</p>';
-        return;
-    }
-
-    // обновление заголовков таблицы
-    updateTableHeaders(selectedUnis);
-
-    // добавление строк с критериями
-    criteria.forEach((criterion) => {
-        const row = document.createElement("tr"); // создать строку таблицы (каждый критерий = одна строка)
-
-        // ячейка с названием критерия
-        const criterionCell = document.createElement("td");
-        criterionCell.className = "criteria-header";
-        criterionCell.innerHTML = `<i class="${criterion.icon}"></i> ${criterion.name}`;
-        row.appendChild(criterionCell); // добавить в пустую строку критерий
-
-        // ячейки с данными для каждого университета
-        selectedUnis.forEach((uniId) => {
-            const uniCell = document.createElement("td"); // пустая ячейка для уника 
-            const uniData = universitiesData[uniId]; // массив всех уников
-
-            if (uniData && uniData.criteria[criterion.id]) { // проверка на наличие данныъ
-                uniCell.textContent = uniData.criteria[criterion.id];
-            } else {
-                uniCell.innerHTML = '<span class="no-data">Нет данных</span>';
-            }
-
-            row.appendChild(uniCell);
-        });
-
-        // добавление пустых ячеек, если выбрано меньше 3 университетов
-        for (let i = selectedUnis.length; i < 3; i++) {
-            const emptyCell = document.createElement("td");
-            emptyCell.innerHTML = '<span class="no-data">Не выбран</span>';
-            row.appendChild(emptyCell);
-        }
-
-        comparisonBody.appendChild(row);
-    });
-
-    // генерация результатов сравнения
-    generateComparisonResults(selectedUnis);
->>>>>>> 29303692e018e2a705b37d4f7d037f0cba53b027
 }
 
-// обновление заголовков таблицы
+// Обновление заголовков таблицы
 function updateTableHeaders(selectedUnis) {
   const headers = [uniHeader1, uniHeader2, uniHeader3];
 
@@ -279,15 +213,15 @@ function updateTableHeaders(selectedUnis) {
       const uniData = universitiesData[uniId];
 
       header.innerHTML = `
-                        <div class="university-header">
-                            <img src="${uniData.logo}" alt="${uniData.name}" class="university-logo">
-                            <div>
-                                <div class="university-name">${uniData.name}</div>
-                                <div class="university-city">${uniData.city}</div>
-                                <div class="rating-badge">Рейтинг: ${uniData.rating}/5.0</div>
-                            </div>
-                        </div>
-                    `;
+              <div class="university-header">
+                  <img src="${uniData.logo}" alt="${uniData.name}" class="university-logo">
+                  <div>
+                      <div class="university-name">${uniData.name}</div>
+                      <div class="university-city">${uniData.city}</div>
+                      <div class="rating-badge">Рейтинг: ${uniData.rating}/5.0</div>
+                  </div>
+              </div>
+          `;
     } else {
       header.innerHTML = "Университет не выбран";
     }
@@ -310,10 +244,10 @@ function generateComparisonResults(selectedUnis) {
     const costCard = document.createElement("div");
     costCard.className = "result-card";
     costCard.innerHTML = `
-                    <h3 class="result-title"><i class="fas fa-money-bill-wave"></i> Стоимость обучения</h3>
-                    <p>${costResults.text}</p>
-                    <div class="result-winner"><i class="fas fa-trophy"></i> ${costResults.winner}</div>
-                `;
+          <h3 class="result-title"><i class="fas fa-money-bill-wave"></i> Стоимость обучения</h3>
+          <p>${costResults.text}</p>
+          <div class="result-winner"><i class="fas fa-trophy"></i> ${costResults.winner}</div>
+      `;
     resultsContent.appendChild(costCard);
   }
 
@@ -323,10 +257,10 @@ function generateComparisonResults(selectedUnis) {
     const ratingCard = document.createElement("div");
     ratingCard.className = "result-card";
     ratingCard.innerHTML = `
-                    <h3 class="result-title"><i class="fas fa-star"></i> Рейтинг университета</h3>
-                    <p>${ratingResults.text}</p>
-                    <div class="result-winner"><i class="fas fa-trophy"></i> ${ratingResults.winner}</div>
-                `;
+          <h3 class="result-title"><i class="fas fa-star"></i> Рейтинг университета</h3>
+          <p>${ratingResults.text}</p>
+          <div class="result-winner"><i class="fas fa-trophy"></i> ${ratingResults.winner}</div>
+      `;
     resultsContent.appendChild(ratingCard);
   }
 
@@ -336,10 +270,10 @@ function generateComparisonResults(selectedUnis) {
     const employmentCard = document.createElement("div");
     employmentCard.className = "result-card";
     employmentCard.innerHTML = `
-                    <h3 class="result-title"><i class="fas fa-briefcase"></i> Трудоустройство выпускников</h3>
-                    <p>${employmentResults.text}</p>
-                    <div class="result-winner"><i class="fas fa-trophy"></i> ${employmentResults.winner}</div>
-                `;
+          <h3 class="result-title"><i class="fas fa-briefcase"></i> Трудоустройство выпускников</h3>
+          <p>${employmentResults.text}</p>
+          <div class="result-winner"><i class="fas fa-trophy"></i> ${employmentResults.winner}</div>
+      `;
     resultsContent.appendChild(employmentCard);
   }
 
@@ -349,10 +283,10 @@ function generateComparisonResults(selectedUnis) {
   recommendationCard.className = "result-card";
   recommendationCard.style.borderLeftColor = "#27ae60";
   recommendationCard.innerHTML = `
-                <h3 class="result-title"><i class="fas fa-lightbulb"></i> Наша рекомендация</h3>
-                <p>${recommendation.text}</p>
-                <div class="result-winner">${recommendation.winner}</div>
-            `;
+      <h3 class="result-title"><i class="fas fa-lightbulb"></i> Наша рекомендация</h3>
+      <p>${recommendation.text}</p>
+      <div class="result-winner">${recommendation.winner}</div>
+  `;
   resultsContent.appendChild(recommendationCard);
 }
 
