@@ -7,13 +7,13 @@
 
 body {
     background: #f8f9fa;
-    padding: 20px;
     color: #333;
 }
 
 .page {
     max-width: 900px;
     margin: 0 auto;
+    margin-top: 35px;
     background: white;
     border-radius: 10px;
     padding: 25px;
