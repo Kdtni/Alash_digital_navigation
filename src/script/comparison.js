@@ -2,7 +2,7 @@ const universitiesData = {
   kaznu: {
     name: "КазНУ им. аль-Фараби",
     city: "Алматы",
-    logo: "https://upload.wikimedia.org/wikipedia/ru/thumb/6/6e/KazNU_Al-Farabi_emblem.png/150px-KazNU_Al-Farabi_emblem.png",
+    logo: "https://farabi.university/front/assets/img/icons/logonew1.png",
     rating: 4.8,
     criteria: {
       reputation: "Высокая (старейший вуз страны)",
@@ -18,7 +18,7 @@ const universitiesData = {
   nu: {
     name: "Назарбаев Университет",
     city: "Нур-Султан",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Nazarbayev_University_seal.png/150px-Nazarbayev_University_seal.png",
+    logo: "https://static.tildacdn.pro/tild3731-3534-4564-a433-363633326465/noroot.png",
     rating: 4.9,
     criteria: {
       reputation: "Очень высокая (ведущий исследовательский вуз)",
@@ -34,7 +34,7 @@ const universitiesData = {
   kazntu: {
     name: "КазНТУ им. Сатпаева",
     city: "Алматы",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Satbayev_University_logo_ru.png/150px-Satbayev_University_logo_ru.png",
+    logo: "https://official.satbayev.university/files/img/official/main/Frame%2018.png",
     rating: 4.5,
     criteria: {
       reputation: "Высокая (лучший технический вуз)",
@@ -50,7 +50,7 @@ const universitiesData = {
   enu: {
     name: "ЕНУ им. Гумилева",
     city: "Нур-Султан",
-    logo: "https://enu.kz/images/logo.png",
+    logo: "https://enu.kz/_nuxt/logo.0ywpaMup.svg",
     rating: 4.4,
     criteria: {
       reputation: "Высокая (крупный научно-образовательный центр)",
@@ -66,7 +66,7 @@ const universitiesData = {
   kau: {
     name: "КазАТУ им. Сейфуллина",
     city: "Нур-Султан",
-    logo: "https://kazatu.edu.kz/wp-content/uploads/2020/09/logo.png",
+    logo: "https://kazatu.edu.kz/img/logo_official.svg",
     rating: 4.2,
     criteria: {
       reputation: "Высокая (ведущий аграрный вуз)",
@@ -82,7 +82,7 @@ const universitiesData = {
   kaznuir: {
     name: "КазНУИ",
     city: "Астана",
-    logo: "https://kaznui.kz/wp-content/uploads/2022/04/logo_kaznui.png",
+    logo: "https://kaznui.kz/img/logo.png",
     rating: 4.3,
     criteria: {
       reputation: "Высокая (ведущий вуз искусств)",
