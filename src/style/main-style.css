@@ -4,38 +4,48 @@ padding: 0;
 box-sizing: border-box; 
 }
 
+/* Шапка */
 header {
-    width: 100%;
-    height: 50px;
-    top: 0;
-    left: 0;
-    background-color: #268BF0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    padding-right: 100px;
-    padding-left: 100px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #268BF0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 10;
 }
-header nav {
-    display: flex;
-    gap: 50px;
-}
-header nav a {
-    color: white;
-    text-decoration: none;
-}
+
 header img {
     height: 40px;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a:hover {
+  color: #2664a1;
 }
 
 /******* слайдер *******/
 .slider {
     width: 100%;
-    height: 100vh;
+    height: 95vh;
 }
 .slide img{
-    height: 100vh;
+    height: 95vh;
     width: 100%;
 }
 
@@ -44,30 +54,251 @@ header img {
     animation: fadeEffect 1.5s ease-in-out;
 }
 
-/* стрелки */
-.prev, .next {
-    position: absolute;
-    cursor: pointer;
-    top: 50%;
-    color: white;
+@keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
 }
+
+/************  Стрелки  ************/
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    user-select: none;
+    transition: 0.3s;
+}
+
 .prev { left: 20px; }
 .next { right: 20px; }
+
 .prev:hover, .next:hover {
     color: #268BF0;
 }
 
-/* точки */
+/************  Точки навигации  ************/
 .dots {
     position: absolute;
     width: 100%;
+    bottom: 2px;
     text-align: center;
-    gap: 10px;
-} 
+}
+
 .dot {
-    color: white;
     cursor: pointer;
-    height: 10px;
+    height: 7px;
+    width: 7px;
+    margin: 0 5px;
+    background-color: rgba(255,255,255,0.6);
     border-radius: 50%;
     display: inline-block;
+    transition: background 0.4s;
 }
+
+.dot.active, .dot:hover {
+    background-color: #268BF0;
+}
+
+
+
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hero */
+.unikz-hero { 
+    padding: 110px 0 60px; 
+    background: #ffffff;   /* светлый фон */
+    color: #000000;        /* текст черный */
+}
+.hero-inner { 
+    display: flex; 
+    gap: 40px; 
+    align-items: start; 
+    flex-wrap: wrap; 
+}
+.hero-left { 
+    flex: 1 1 520px; 
+}
+.hero-right {
+    width: 360px; 
+    min-width: 280px;
+}
+
+/* Headline */
+.unikz-hero h1 { 
+    font-size: 36px; 
+    line-height: 1.05; 
+    margin-bottom: 14px; 
+    color: #000000; 
+    letter-spacing: -0.4px; 
+}
+.lead { 
+    color: #000000; 
+    margin-bottom: 18px; 
+    font-size: 16px; 
+}
+
+/* Buttons */
+.btn { 
+    display: inline-block; 
+    text-decoration: none; 
+    padding: 10px 18px; 
+    border-radius: 10px; 
+    font-weight: 600; 
+}
+.btn.primary { 
+    background: linear-gradient(90deg,#1785f4,#268BF0);
+    color: white; 
+    box-shadow: 0 6px 18px rgba(255,139,0,0.18); 
+}
+.btn.ghost { 
+    background: transparent; 
+    border: 1px solid rgba(0,0,0,0.12); 
+    color: black; 
+    margin-left: 12px; 
+}
+
+/* Quick features list */
+.quick-features { 
+    margin-top: 20px; 
+    display: grid; 
+    gap: 10px; 
+    grid-template-columns: 1fr; 
+}
+.qf-item strong { 
+    display:block; 
+    color: #000000; 
+    font-size:14px; 
+}
+.qf-item span { 
+    color: rgba(0,0,0,0.75); 
+    font-size:13px; 
+}
+
+/* Search card */
+.search-card { 
+    background: rgba(0,0,0,0.04); 
+    padding: 18px; 
+    border-radius: 12px; 
+    margin-bottom: 18px; 
+}
+.search-card label { 
+    display:block; 
+    font-size:13px; 
+    color: rgba(0,0,0,0.8); 
+    margin-bottom: 8px; 
+}
+.search-row { 
+    display:flex; 
+    gap:10px; 
+}
+.search-row input[type="text"] { 
+    flex:1; 
+    padding:10px 12px; 
+    border-radius:10px; 
+    border: 1px solid rgba(0,0,0,0.06); 
+    background: rgba(255,255,255,0.9); 
+    color:black; 
+}
+.search-row input::placeholder { 
+    color: rgba(0,0,0,0.5); 
+}
+.quick-tags { 
+    margin-top:10px; 
+    font-size:13px; 
+    color: rgba(0,0,0,0.8); 
+}
+.quick-tags a { 
+    color:#268BF0; 
+    margin-left:8px; 
+    text-decoration:none; 
+}
+
+/* Stats card */
+.stats-card { 
+    display:flex; 
+    gap:10px; 
+    margin-top:12px;
+}
+.stat { 
+    background: #ffffff; 
+    padding:12px; 
+    border-radius:10px; 
+    text-align:center; 
+    flex:1; 
+}
+.stat-value { 
+    font-size:20px; 
+    font-weight:700; 
+    color:#000000; 
+}
+.stat-label { 
+    font-size:13px; 
+    color: rgba(0,0,0,0.75); 
+    margin-top:6px; 
+}
+
+/* Features grid */
+.unikz-features { 
+    padding: 40px 0; 
+    background: #f5f5f5; 
+    color:#000000; 
+}
+.features-grid { 
+    display:grid; 
+    grid-template-columns: repeat(4,1fr); 
+    gap:18px; 
+    list-style:none; 
+    padding:0; 
+    margin:0; 
+}
+.feature-card { 
+    background: #ffffff; 
+    padding:18px;
+    border-radius:12px; 
+    min-height:120px; 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1); 
+}
+.feature-card h3 { 
+    margin-bottom:8px; 
+    font-size:18px; 
+    color:#000000; 
+}
+.feature-card p { 
+    color: rgba(0,0,0,0.75); 
+    font-size:14px; 
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .features-grid { 
+    grid-template-columns: repeat(2,1fr); 
+}
+  .hero-inner { 
+    flex-direction: column-reverse; 
+    align-items: stretch; 
+}
+  .unikz-hero { 
+    padding-top: 100px; 
+}
+}
+@media (max-width: 520px) {
+  .features-grid { 
+    grid-template-columns: 1fr; 
+}
+  .unikz-hero h1 { 
+    font-size: 26px; 
+}
+  .hero-right { 
+    width:100%; 
+}
+}
+
