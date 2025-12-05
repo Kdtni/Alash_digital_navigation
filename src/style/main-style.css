@@ -1,0 +1,73 @@
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background-color: #268BF0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 100px;
+    padding-left: 100px;
+}
+header nav {
+    display: flex;
+    gap: 50px;
+}
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+header img {
+    height: 40px;
+}
+
+/******* слайдер *******/
+.slider {
+    width: 100%;
+    height: 100vh;
+}
+.slide img{
+    height: 100vh;
+    width: 100%;
+}
+
+/* Эффект появления */
+.fade {
+    animation: fadeEffect 1.5s ease-in-out;
+}
+
+/* стрелки */
+.prev, .next {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    color: white;
+}
+.prev { left: 20px; }
+.next { right: 20px; }
+.prev:hover, .next:hover {
+    color: #268BF0;
+}
+
+/* точки */
+.dots {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    gap: 10px;
+} 
+.dot {
+    color: white;
+    cursor: pointer;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
