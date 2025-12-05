@@ -1,4 +1,4 @@
-// Данные об университетах
+// данные об университетах
 const universitiesData = {
     kaznu: {
         name: "КазНУ им. аль-Фараби",
@@ -98,7 +98,7 @@ const universitiesData = {
     },
 };
 
-// Критерии для сравнения
+// критерии для сравнения
 const criteria = [
     { id: "reputation", name: "Репутация и престиж", icon: "fas fa-award" },
     {
@@ -134,7 +134,7 @@ const criteria = [
     },
 ];
 
-// Элементы DOM
+// элементы DOM
 const uniSelect1 = document.getElementById("uni1");
 const uniSelect2 = document.getElementById("uni2");
 const uniSelect3 = document.getElementById("uni3");
@@ -146,19 +146,19 @@ const uniHeader1 = document.getElementById("uniHeader1");
 const uniHeader2 = document.getElementById("uniHeader2");
 const uniHeader3 = document.getElementById("uniHeader3");
 
-// Функция для отображения сравнения
+// отображения сравнения
 function renderComparison() {
     const selectedUnis = [
         uniSelect1.value,
         uniSelect2.value,
         uniSelect3.value,
-    ].filter((value) => value !== "");
+    ].filter((value) => value !== ""); // оставить толька те элементы которые не пустые
 
-    // Очистка таблицы
+    // очистка таблицы
     comparisonBody.innerHTML = "";
     resultsContent.innerHTML = "";
 
-    // Если не выбрано ни одного университета
+    // если не выбрано ни одного университета
     if (selectedUnis.length === 0) {
         comparisonBody.innerHTML =
             '<tr><td colspan="4" class="no-data" style="text-align: center; padding: 40px;">Выберите университеты для сравнения</td></tr>';
@@ -167,25 +167,25 @@ function renderComparison() {
         return;
     }
 
-    // Обновление заголовков таблицы
+    // обновление заголовков таблицы
     updateTableHeaders(selectedUnis);
 
-    // Добавление строк с критериями
+    // добавление строк с критериями
     criteria.forEach((criterion) => {
-        const row = document.createElement("tr");
+        const row = document.createElement("tr"); // создать строку таблицы (каждый критерий = одна строка)
 
-        // Ячейка с названием критерия
+        // ячейка с названием критерия
         const criterionCell = document.createElement("td");
         criterionCell.className = "criteria-header";
         criterionCell.innerHTML = `<i class="${criterion.icon}"></i> ${criterion.name}`;
-        row.appendChild(criterionCell);
+        row.appendChild(criterionCell); // добавить в пустую строку критерий
 
-        // Ячейки с данными для каждого университета
+        // ячейки с данными для каждого университета
         selectedUnis.forEach((uniId) => {
-            const uniCell = document.createElement("td");
-            const uniData = universitiesData[uniId];
+            const uniCell = document.createElement("td"); // пустая ячейка для уника 
+            const uniData = universitiesData[uniId]; // массив всех уников
 
-            if (uniData && uniData.criteria[criterion.id]) {
+            if (uniData && uniData.criteria[criterion.id]) { // проверка на наличие данныъ
                 uniCell.textContent = uniData.criteria[criterion.id];
             } else {
                 uniCell.innerHTML = '<span class="no-data">Нет данных</span>';
@@ -194,7 +194,7 @@ function renderComparison() {
             row.appendChild(uniCell);
         });
 
-        // Добавление пустых ячеек, если выбрано меньше 3 университетов
+        // добавление пустых ячеек, если выбрано меньше 3 университетов
         for (let i = selectedUnis.length; i < 3; i++) {
             const emptyCell = document.createElement("td");
             emptyCell.innerHTML = '<span class="no-data">Не выбран</span>';
@@ -204,11 +204,11 @@ function renderComparison() {
         comparisonBody.appendChild(row);
     });
 
-    // Генерация результатов сравнения
+    // генерация результатов сравнения
     generateComparisonResults(selectedUnis);
 }
 
-// Обновление заголовков таблицы
+// обновление заголовков таблицы
 function updateTableHeaders(selectedUnis) {
     const headers = [uniHeader1, uniHeader2, uniHeader3];
 
