@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universitats</title>
+
+    <link rel="stylesheet" href="./style/universtitats.css">
+</head>
+<body>
+    <section class="universities-page">
+        <div class="container">
+            <h1>Университеты Казахстана</h1>
+            <p class="subtitle">Подборка всех ведущих вузов страны с актуальной статистикой, рейтингами и направлениями подготовки.</p>
+
+            <!-- ===== Фильтр ===== -->
+            <div class="filters">
+            <input type="text" placeholder="Поиск университета..." id="searchUni">
+            <select id="cityFilter">
+                <option value="">Все города</option>
+                <option value="Алматы">Алматы</option>
+                <option value="Астана">Астана</option>
+                <option value="Шымкент">Шымкент</option>
+                <option value="Караганда">Караганда</option>
+            </select>
+            <select id="typeFilter">
+                <option value="">Все типы</option>
+                <option value="Национальный">Национальный</option>
+                <option value="Государственный">Государственный</option>
+                <option value="Частный">Частный</option>
+            </select>
+            </div>
+
+            <!-- ===== Карточки университетов ===== -->
+            <div class="universities-grid">
+
+            <!-- 1. КазНУ -->
+            <div class="uni-card" data-city="Алматы" data-type="Национальный">
+                <img src="../images/universities/kaznu.jpg" alt="KazNU">
+                <div class="uni-info">
+                <h3>Казахский национальный университет им. аль-Фараби</h3>
+                <p class="city">Алматы • Национальный</p>
+
+                <ul class="stats">
+                    <li><strong>Студентов:</strong> 25 000+</li>
+                    <li><strong>Факультетов:</strong> 16</li>
+                    <li><strong>Направлений:</strong> 350+</li>
+                    <li><strong>Стоимость:</strong> от 650 000 ₸</li>
+                    <li><strong>Рейтинг QS:</strong> #150</li>
+                </ul>
+
+                <a class="details-btn" href="/universities/kaznu">Подробнее</a>
+                </div>
+            </div>
+
+            <!-- 2. Назарбаев Университет -->
+            <div class="uni-card" data-city="Астана" data-type="Национальный">
+                <img src="../images/universities/nu.jpg" alt="NU">
+                <div class="uni-info">
+                <h3>Назарбаев Университет</h3>
+                <p class="city">Астана • Национальный</p>
+
+                <ul class="stats">
+                    <li><strong>Студентов:</strong> 5000+</li>
+                    <li><strong>Школ:</strong> 8 школ</li>
+                    <li><strong>Направлений:</strong> 120+</li>
+                    <li><strong>Стоимость:</strong> бесплатно / гранты</li>
+                    <li><strong>Мировой рейтинг:</strong> исследовательский топ</li>
+                </ul>
+
+                <a class="details-btn" href="/universities/nu">Подробнее</a>
+                </div>
+            </div>
+
+            <!-- 3. Satbayev University -->
+            <div class="uni-card" data-city="Алматы" data-type="Государственный">
+                <img src="../images/universities/satbayev.jpg" alt="Satbayev">
+                <div class="uni-info">
+                <h3>Satbayev University</h3>
+                <p class="city">Алматы • Государственный</p>
+
+                <ul class="stats">
+                    <li><strong>Студентов:</strong> 14 000+</li>
+                    <li><strong>Факультетов:</strong> 10</li>
+                    <li><strong>Программ:</strong> 180+</li>
+                    <li><strong>Стоимость:</strong> от 700 000 ₸</li>
+                    <li><strong>Специализация:</strong> инженерия, IT</li>
+                </ul>
+
+                <a class="details-btn" href="/universities/satbayev">Подробнее</a>
+                </div>
+            </div>
+
+            <!-- 4. KBTU -->
+            <div class="uni-card" data-city="Алматы" data-type="Частный">
+                <img src="../images/universities/kbtu.jpg" alt="KBTU">
+                <div class="uni-info">
+                <h3>Казахстанско-Британский технический университет (KBTU)</h3>
+                <p class="city">Алматы • Частный</p>
+
+                <ul class="stats">
+                    <li><strong>Студентов:</strong> 4000+</li>
+                    <li><strong>Факультетов:</strong> 7</li>
+                    <li><strong>Программ:</strong> 50+</li>
+                    <li><strong>Стоимость:</strong> от 1 200 000 ₸</li>
+                    <li><strong>Лучшие направления:</strong> IT, экономика</li>
+                </ul>
+
+                <a class="details-btn" href="/universities/kbtu">Подробнее</a>
+                </div>
+            </div>
+
+            <!-- 5. МУИТ -->
+            <div class="uni-card" data-city="Алматы" data-type="Частный">
+                <img src="../images/universities/muit.jpg" alt="MUIT">
+                <div class="uni-info">
+                <h3>Международный университет информационных технологий (МУИТ)</h3>
+                <p class="city">Алматы • Частный</p>
+
+                <ul class="stats">
+                    <li><strong>Студентов:</strong> 7000+</li>
+                    <li><strong>Факультетов:</strong> 5</li>
+                    <li><strong>Программ:</strong> 40+</li>
+                    <li><strong>Стоимость:</strong> от 850 000 ₸</li>
+                    <li><strong>Специализация:</strong> IT, программирование</li>
+                </ul>
+
+                <a class="details-btn" href="/universities/muit">Подробнее</a>
+                </div>
+            </div>
+
+            <!-- Можно добавить ещё 20–40 университетов (скажу по запросу) -->
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
