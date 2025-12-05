@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заявка на консультацию по поступлению | ADNKazakhstan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style/request.css">
+    <link rel="stylesheet" href="./style/main-style.css">
+</head>
+
+<body>
+    <header>
+        <img src="../images/logo/logo-main.png" alt="alash_digital_navigation-logo">
+        <nav>
+            <a href="./main.html">главная</a>
+            <p>|</p>
+            <a href="./universtitats.html">университеты</a>
+            <p>|</p>
+            <a href="./international.html">международное сотрудничество</a>
+            <p>|</p>
+            <a href="./request.html">консультация</a>
+        </nav>
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="consultation-container">
+        <div class="form-header">
+            <h1>
+                <i class="fas fa-graduation-cap"></i>
+                Консультация по поступлению
+            </h1>
+            <p>Заполните заявку для получения индивидуальной консультации</p>
+        </div>
+
+        <div class="consultation-form">
+            <!-- Прогресс бар -->
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <!-- Индикатор шагов -->
+            <div class="step-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-name">Личные данные</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-name">Образование</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-name">Завершение</div>
+                </div>
+            </div>
+
+            <!-- Сообщения -->
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i> Ваша заявка успешно отправлена!
+            </div>
+            <div class="error-message" id="errorMessage">
+                <i class="fas fa-exclamation-circle"></i> Произошла ошибка при
+                отправке заявки
+            </div>
+
+            <!-- Форма -->
+            <form id="consultationForm" action="#" method="POST">
+                <!-- Шаг 1: Личные данные -->
+                <div class="progress-step active" id="step1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">
+                                <i class="fas fa-user"></i> ФИО
+                            </label>
+                            <input type="text" name="full_name" required placeholder="Иванов Иван Иванович"
+                                pattern="[А-ЯЁа-яё\s]+" title="Только русские буквы и пробелы" />
+                            <div class="form-help">
+                                <i class="fas fa-info-circle"></i> Укажите полное ФИО
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required">
+                                <i class="fas fa-envelope"></i> Email
+                            </label>
+                            <input type="email" name="email" required placeholder="example@email.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="required">
+                                <i class="fas fa-phone"></i> Телефон
+                            </label>
+                            <input type="tel" name="phone" required placeholder="+7 (777) 123-45-67"
+                                pattern="[\+\d\s\-\(\)]+" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required">
+                                <i class="fas fa-university"></i> Университет
+                            </label>
+                            <select name="university" required class="university-select">
+                                <option value="">Выберите университет</option>
+                                <option value="Назарбаев Университет">
+                                    Назарбаев Университет
+                                </option>
+                                <option value="КазНУ им. аль-Фараби">
+                                    КазНУ им. аль-Фараби
+                                </option>
+                                <option value="Satbayev University">
+                                    Satbayev University
+                                </option>
+                                <option value="КБТУ">
+                                    Казахстанско-Британский технический университет
+                                </option>
+                                <option value="МУИТ">
+                                    Международный университет информационных технологий
+                                </option>
+                                <option value="ЕНУ им. Гумилева">ЕНУ им. Гумилева</option>
+                                <option value="КазНТУ">КазНТУ им. Сатпаева</option>
+                                <option value="КазАТУ">КазАТУ им. Сейфуллина</option>
+                                <option value="КазНПУ">КазНПУ им. Абая</option>
+                                <option value="КазУМОиМЯ">КазУМОиМЯ им. Абылай хана</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-book"></i> Интересующая специальность
+                        </label>
+                        <input type="text" name="speciality"
+                            placeholder="Например: Компьютерные науки, Юриспруденция" />
+                    </div>
+                </div>
+
+                <!-- Шаг 2: Образование -->
+                <div class="progress-step" id="step2">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-calendar-alt"></i> Год окончания школы
+                            </label>
+                            <select name="graduation_year">
+                                <option value="">Выберите год</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-chart-line"></i> Средний балл (GPA)
+                            </label>
+                            <input type="number" name="gpa" min="0" max="5" step="0.01" placeholder="4.5" />
+                            <div class="form-help">
+                                <i class="fas fa-info-circle"></i> По 5-балльной шкале
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-graduation-cap"></i> Результат ЕНТ
+                            </label>
+                            <input type="number" name="ent_score" min="0" max="140" placeholder="115" />
+                        </div>
+
+                        <div class="form-group">
+                            <label> <i class="fas fa-language"></i> Результат IELTS </label>
+                            <input type="number" name="ielts_score" min="0" max="9" step="0.5" placeholder="6.5" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-calendar-day"></i> Желаемая дата консультации
+                            </label>
+                            <input type="date" name="consultation_date" />
+                        </div>
+
+                        <div class="form-group">
+                            <label> <i class="fas fa-clock"></i> Удобное время </label>
+                            <select name="preferred_time">
+                                <option value="">Выберите время</option>
+                                <option value="09:00">09:00 - 11:00</option>
+                                <option value="11:00">11:00 - 13:00</option>
+                                <option value="13:00">13:00 - 15:00</option>
+                                <option value="15:00">15:00 - 17:00</option>
+                                <option value="17:00">17:00 - 19:00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-comment"></i> Дополнительная информация
+                        </label>
+                        <textarea name="message" rows="4"
+                            placeholder="Расскажите о ваших целях, вопросах, или особых требованиях..."></textarea>
+                    </div>
+
+                    <div class="form-navigation">
+                        <button type="button" class="nav-btn" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i> Назад
+                        </button>
+                        <button type="submit" class="nav-btn next">
+                            <i class="fas fa-paper-plane"></i> Отправить заявку
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Шаг 3: Подтверждение (будет показан после отправки) -->
+                <div class="progress-step" id="step3">
+                    <div style="text-align: center; padding: 40px 20px">
+                        <div style="font-size: 4rem; color: #4caf50; margin-bottom: 20px">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2 style="color: #1a237e; margin-bottom: 15px">
+                            Спасибо за вашу заявку!
+                        </h2>
+                        <p style="color: #666; line-height: 1.6; margin-bottom: 25px">
+                            Мы получили вашу заявку на консультацию. Наш специалист свяжется
+                            с вами в течение 24 часов для уточнения деталей и назначения
+                            времени консультации.
+                        </p>
+                        <div style="
+                  background: #f5f7ff;
+                  padding: 20px;
+                  border-radius: 10px;
+                  margin-bottom: 25px;
+                ">
+                            <h3 style="color: #3949ab; margin-bottom: 15px">
+                                <i class="fas fa-info-circle"></i> Что дальше?
+                            </h3>
+                            <ul style="text-align: left; color: #666; line-height: 1.8">
+                                <li>
+                                    Проверьте указанный email (возможно, письмо попало в спам)
+                                </li>
+                                <li>Будьте готовы ответить на звонок с нашего номера</li>
+                                <li>
+                                    Подготовьте вопросы, которые хотите задать консультанту
+                                </li>
+                                <li>Имейте под рукой документы об образовании</li>
+                            </ul>
+                        </div>
+                        <a href="consultation_form.html" class="nav-btn next" style="display: inline-flex">
+                            <i class="fas fa-redo"></i> Отправить новую заявку
+                        </a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-footer">
+                <p>
+                    Нажимая кнопку "Отправить заявку", вы соглашаетесь с
+                    <a href="#">политикой конфиденциальности</a> и
+                    <a href="#">обработкой персональных данных</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- ЛОГО -->
+            <div class="footer-logo">
+                <img src="../images/logo/logo-main.png" alt="Alash Digital Navigation Logo">
+            </div>
+
+            <!-- ССЫЛКИ -->
+            <div class="footer-links">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="./main.html">Главная</a></li>
+                    <li><a href="./universtitats.html">Университеты</a></li>
+                    <li><a href="#">Гид по профессиям</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- СОЦ.СЕТИ -->
+            <div class="footer-social">
+                <h3>Мы в соцсетях</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="../images/icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#"><img src="../images/icons/telegram.svg" alt="Telegram"></a>
+                    <a href="#"><img src="../images/icons/youtube.svg" alt="YouTube"></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Alash Digital Navigation. Все права защищены.</p>
+        </div>
+    </footer>
+</body>

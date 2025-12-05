@@ -7,16 +7,20 @@
 /* Шапка */
 header {
     width: 100%;
-    top: 0;
-    left: 0;
     background: #268BF0;
     color: white;
     display: flex;
-    justify-content: left;
     align-items: center;
-    gap: 100px;
+    justify-content: space-between;
     padding: 10px 20px;
     z-index: 10;
+}
+
+/* Левая часть  лого  навигация */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 header img {
@@ -31,14 +35,34 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: color 0.3s;
-    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-family: "Poppins", Arial, sans-serif;
 }
 
 nav a:hover {
-    color: #2664a1;
+    color: #dbeeff;
 }
+
+/* Соц иконки справа */
+.social-icons-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-icons-header a img {
+    width: 28px;
+    transition: 0.2s;
+    filter: brightness(0) saturate(100%) invert(33%) sepia(76%) saturate(434%) hue-rotate(177deg) brightness(85%) contrast(79%);
+}
+
+.social-icons-header a img:hover {
+    transform: scale(1.15);
+    filter: brightness(0) saturate(100%) invert(22%) sepia(62%) saturate(322%) hue-rotate(176deg) brightness(92%) contrast(85%);
+}
+
 
 /******* слайдер *******/
 .slider {

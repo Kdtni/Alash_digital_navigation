@@ -2,193 +2,195 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Сравнение университетов Казахстана | ADNKazakhstan</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style/comparison.css">
-  <link rel="stylesheet" href="style/main-style.css">
-  <link rel="icon" type="image/png" href="../images/logo/logo-alash.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сравнение университетов Казахстана | ADNKazakhstan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style/comparison.css">
+    <link rel="stylesheet" href="style/main-style.css">
+    <link rel="icon" type="image/png" href="../images/logo/logo-alash.png">
 </head>
 
 <body>
-  <header>
-    <img src="../images/logo/logo-main.png" alt="alash_digital_navigation-logo">
-    <nav>
-      <a href="./main.html">главная</a>
-      <p>|</p>
-      <a href="./universtitats.html">университеты</a>
-      <p>|</p>
-      <a href="./international.html">международное сотрудничество</a>
-    </nav>
-    <div class="burger" id="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </header>
+    <header>
+        <img src="../images/logo/logo-main.png" alt="alash_digital_navigation-logo">
+        <nav>
+            <a href="./main.html">главная</a>
+            <p>|</p>
+            <a href="./universtitats.html">университеты</a>
+            <p>|</p>
+            <a href="./international.html">международное сотрудничество</a>
+            <p>|</p>
+            <a href="./request.html">консультация</a>
+        </nav>
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
 
-  <div class="comparison-container">
-    <div class="page-header">
-      <h1>
-        <i class="fas fa-university"></i> Сравнение университетов Казахстана
-      </h1>
-      <p>
-        Выберите до 3 университетов для сравнения по ключевым критериям.
-        Определите лучший вариант для вашего образования.
-      </p>
-    </div>
-
-    <!-- панель управления сравнением -->
-    <section class="comparison-controls">
-      <div class="university-selectors">
-        <div class="selector-group">
-          <label for="uni1"><i class="fas fa-school"></i> Университет 1</label>
-          <select id="uni1" class="university-select">
-            <option value="">-- Выберите университет --</option>
-            <option value="kaznu">
-              Казахский национальный университет им. аль-Фараби
-            </option>
-            <option value="nu">Назарбаев Университет</option>
-            <option value="kazntu">
-              Казахский национальный технический университет им. К. Сатпаева
-            </option>
-            <option value="enu">
-              Евразийский национальный университет им. Л.Н. Гумилева
-            </option>
-            <option value="kau">
-              Казахский агротехнический университет им. С. Сейфуллина
-            </option>
-            <option value="kaznuir">
-              Казахский национальный университет искусств
-            </option>
-          </select>
+    <div class="comparison-container">
+        <div class="page-header">
+            <h1>
+                <i class="fas fa-university"></i> Сравнение университетов Казахстана
+            </h1>
+            <p>
+                Выберите до 3 университетов для сравнения по ключевым критериям.
+                Определите лучший вариант для вашего образования.
+            </p>
         </div>
 
-        <div class="selector-group">
-          <label for="uni2"><i class="fas fa-school"></i> Университет 2</label>
-          <select id="uni2" class="university-select">
-            <option value="">-- Выберите университет --</option>
-            <option value="kaznu">
-              Казахский национальный университет им. аль-Фараби
-            </option>
-            <option value="nu">Назарбаев Университет</option>
-            <option value="kazntu">
-              Казахский национальный технический университет им. К. Сатпаева
-            </option>
-            <option value="enu">
-              Евразийский национальный университет им. Л.Н. Гумилева
-            </option>
-            <option value="kau">
-              Казахский агротехнический университет им. С. Сейфуллина
-            </option>
-            <option value="kaznuir">
-              Казахский национальный университет искусств
-            </option>
-          </select>
-        </div>
+        <!-- панель управления сравнением -->
+        <section class="comparison-controls">
+            <div class="university-selectors">
+                <div class="selector-group">
+                    <label for="uni1"><i class="fas fa-school"></i> Университет 1</label>
+                    <select id="uni1" class="university-select">
+                        <option value="">-- Выберите университет --</option>
+                        <option value="kaznu">
+                            Казахский национальный университет им. аль-Фараби
+                        </option>
+                        <option value="nu">Назарбаев Университет</option>
+                        <option value="kazntu">
+                            Казахский национальный технический университет им. К. Сатпаева
+                        </option>
+                        <option value="enu">
+                            Евразийский национальный университет им. Л.Н. Гумилева
+                        </option>
+                        <option value="kau">
+                            Казахский агротехнический университет им. С. Сейфуллина
+                        </option>
+                        <option value="kaznuir">
+                            Казахский национальный университет искусств
+                        </option>
+                    </select>
+                </div>
 
-        <div class="selector-group">
-          <label for="uni3"><i class="fas fa-school"></i> Университет 3</label>
-          <select id="uni3" class="university-select">
-            <option value="">-- Выберите университет --</option>
-            <option value="kaznu">
-              Казахский национальный университет им. аль-Фараби
-            </option>
-            <option value="nu">Назарбаев Университет</option>
-            <option value="kazntu">
-              Казахский национальный технический университет им. К. Сатпаева
-            </option>
-            <option value="enu">
-              Евразийский национальный университет им. Л.Н. Гумилева
-            </option>
-            <option value="kau">
-              Казахский агротехнический университет им. С. Сейфуллина
-            </option>
-            <option value="kaznuir">
-              Казахский национальный университет искусств
-            </option>
-          </select>
-        </div>
-      </div>
+                <div class="selector-group">
+                    <label for="uni2"><i class="fas fa-school"></i> Университет 2</label>
+                    <select id="uni2" class="university-select">
+                        <option value="">-- Выберите университет --</option>
+                        <option value="kaznu">
+                            Казахский национальный университет им. аль-Фараби
+                        </option>
+                        <option value="nu">Назарбаев Университет</option>
+                        <option value="kazntu">
+                            Казахский национальный технический университет им. К. Сатпаева
+                        </option>
+                        <option value="enu">
+                            Евразийский национальный университет им. Л.Н. Гумилева
+                        </option>
+                        <option value="kau">
+                            Казахский агротехнический университет им. С. Сейфуллина
+                        </option>
+                        <option value="kaznuir">
+                            Казахский национальный университет искусств
+                        </option>
+                    </select>
+                </div>
 
-      <div class="control-buttons">
-        <button id="compareBtn" class="btn btn-primary">
-          <i class="fas fa-balance-scale"></i> Сравнить выбранные
-        </button>
-        <button id="resetBtn" class="btn btn-secondary">
-          <i class="fas fa-redo"></i> Сбросить
-        </button>
-      </div>
-    </section>
+                <div class="selector-group">
+                    <label for="uni3"><i class="fas fa-school"></i> Университет 3</label>
+                    <select id="uni3" class="university-select">
+                        <option value="">-- Выберите университет --</option>
+                        <option value="kaznu">
+                            Казахский национальный университет им. аль-Фараби
+                        </option>
+                        <option value="nu">Назарбаев Университет</option>
+                        <option value="kazntu">
+                            Казахский национальный технический университет им. К. Сатпаева
+                        </option>
+                        <option value="enu">
+                            Евразийский национальный университет им. Л.Н. Гумилева
+                        </option>
+                        <option value="kau">
+                            Казахский агротехнический университет им. С. Сейфуллина
+                        </option>
+                        <option value="kaznuir">
+                            Казахский национальный университет искусств
+                        </option>
+                    </select>
+                </div>
+            </div>
 
-    <!-- таблица сравнения -->
-    <section class="comparison-table-container">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th class="criteria-header">Критерии сравнения</th>
-            <th id="uniHeader1" class="university-cell">Университет 1</th>
-            <th id="uniHeader2" class="university-cell">Университет 2</th>
-            <th id="uniHeader3" class="university-cell">Университет 3</th>
-          </tr>
-        </thead>
-        <tbody id="comparisonBody">
-          <!-- данные с js -->
-        </tbody>
-      </table>
-    </section>
+            <div class="control-buttons">
+                <button id="compareBtn" class="btn btn-primary">
+                    <i class="fas fa-balance-scale"></i> Сравнить выбранные
+                </button>
+                <button id="resetBtn" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Сбросить
+                </button>
+            </div>
+        </section>
 
-    <!-- результаты сравнения -->
-    <section class="comparison-results">
-      <h2 class="results-header">
-        <i class="fas fa-chart-line"></i> Результаты сравнения
-      </h2>
-      <div id="resultsContent" class="results-content">
-        <p class="no-data">
-          Выберите университеты для сравнения, чтобы увидеть результаты.
-        </p>
-      </div>
-    </section>
-  </div>
+        <!-- таблица сравнения -->
+        <section class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="criteria-header">Критерии сравнения</th>
+                        <th id="uniHeader1" class="university-cell">Университет 1</th>
+                        <th id="uniHeader2" class="university-cell">Университет 2</th>
+                        <th id="uniHeader3" class="university-cell">Университет 3</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonBody">
+                    <!-- данные с js -->
+                </tbody>
+            </table>
+        </section>
 
-  <footer class="footer">
-    <div class="footer-container">
-
-      <!-- ЛОГО -->
-      <div class="footer-logo">
-        <img src="../images/logo/logo-main.png" alt="Alash Digital Navigation Logo">
-      </div>
-
-      <!-- ССЫЛКИ -->
-      <div class="footer-links">
-        <h3>Навигация</h3>
-        <ul>
-          <li><a href="./main.html">Главная</a></li>
-          <li><a href="./universtitats.html">Университеты</a></li>
-          <li><a href="#">Гид по профессиям</a></li>
-          <li><a href="#">Контакты</a></li>
-        </ul>
-      </div>
-
-      <!-- СОЦ.СЕТИ -->
-      <div class="footer-social">
-        <h3>Мы в соцсетях</h3>
-        <div class="social-icons">
-          <a href="#"><img src="../images/icons/instagram.svg" alt="Instagram"></a>
-          <a href="#"><img src="../images/icons/telegram.svg" alt="Telegram"></a>
-          <a href="#"><img src="../images/icons/youtube.svg" alt="YouTube"></a>
-        </div>
-      </div>
-
+        <!-- результаты сравнения -->
+        <section class="comparison-results">
+            <h2 class="results-header">
+                <i class="fas fa-chart-line"></i> Результаты сравнения
+            </h2>
+            <div id="resultsContent" class="results-content">
+                <p class="no-data">
+                    Выберите университеты для сравнения, чтобы увидеть результаты.
+                </p>
+            </div>
+        </section>
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2025 Alash Digital Navigation. Все права защищены.</p>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="footer-container">
 
-  <script src="script/comparison.js"></script>
+            <!-- ЛОГО -->
+            <div class="footer-logo">
+                <img src="../images/logo/logo-main.png" alt="Alash Digital Navigation Logo">
+            </div>
+
+            <!-- ССЫЛКИ -->
+            <div class="footer-links">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="./main.html">Главная</a></li>
+                    <li><a href="./universtitats.html">Университеты</a></li>
+                    <li><a href="#">Гид по профессиям</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- СОЦ.СЕТИ -->
+            <div class="footer-social">
+                <h3>Мы в соцсетях</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="../images/icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#"><img src="../images/icons/telegram.svg" alt="Telegram"></a>
+                    <a href="#"><img src="../images/icons/youtube.svg" alt="YouTube"></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Alash Digital Navigation. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script/comparison.js"></script>
 </body>
 
 </html>
