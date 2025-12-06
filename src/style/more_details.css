@@ -68,6 +68,11 @@ body {
     color: #3498db;
 }
 
+.info-block iframe {
+    margin-top: 20px;
+    width: 100%;
+}
+
 /* Список */
 .simple-list {
     list-style: none;
