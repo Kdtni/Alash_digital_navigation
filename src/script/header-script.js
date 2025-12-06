@@ -36,3 +36,40 @@ document.querySelector(".next").onclick = () => plusSlides(1);
 document.querySelectorAll(".dot").forEach((dot, index) => {
     dot.onclick = () => currentSlide(index);
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Анимация появления при скролле
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
+
+    // Наблюдаем за карточками
+    document.querySelectorAll(".testimonial-card").forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Обработчик для кнопки отзыва
+    document
+        .querySelector(".cta-button")
+        .addEventListener("click", function (e) {
+            if (!this.href.includes("consultation_form.html")) {
+                e.preventDefault();
+                // Можно добавить форму для отзыва или перенаправить на существующую
+                alert(
+                    "Для оставления отзыва заполните форму консультации или свяжитесь с нами"
+                );
+            }
+        });
+});
